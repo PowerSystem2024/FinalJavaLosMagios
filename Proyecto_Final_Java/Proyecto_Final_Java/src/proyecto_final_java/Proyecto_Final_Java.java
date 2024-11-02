@@ -6,8 +6,11 @@ public class Proyecto_Final_Java {
     public static void main(String[] args) {
         int puntuacionJugador1 = 0;
         int puntuacionJugador2 = 0;
+        int totalPreguntas = 3; // Total de preguntas
         String jugador1 = JOptionPane.showInputDialog("Jugador 1, ingresa tu nombre:");
         String jugador2 = JOptionPane.showInputDialog("Jugador 2, ingresa tu nombre:");
+
+        // Pregunta 1
         String pregunta1 = "¿Cuál es el lenguaje de programación más usado en 2024?";
         String[] opciones1 = {"Python", "Java", "JavaScript", "C++"};
         int respuesta1 = JOptionPane.showOptionDialog(null, jugador1 + ", " + pregunta1, "Pregunta 1",
@@ -30,6 +33,7 @@ public class Proyecto_Final_Java {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta era Python.");
         }
 
+        // Pregunta 2
         String pregunta2 = "¿En qué año se lanzó Java?";
         String[] opciones2 = {"1990", "1995", "2000", "2005"};
         int respuesta2 = JOptionPane.showOptionDialog(null, jugador1 + ", " + pregunta2, "Pregunta 2",
@@ -52,6 +56,7 @@ public class Proyecto_Final_Java {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta era 1995.");
         }
 
+        // Pregunta 3
         String pregunta3 = "¿Qué compañía desarrolló Java?";
         String[] opciones3 = {"Microsoft", "Sun Microsystems", "Apple", "Google"};
         int respuesta3 = JOptionPane.showOptionDialog(null, jugador1 + ", " + pregunta3, "Pregunta 3",
@@ -74,8 +79,15 @@ public class Proyecto_Final_Java {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta era Sun Microsystems.");
         }
 
-        String mensajeFinal = jugador1 + ", tu puntuación final es: " + puntuacionJugador1 + "/3\n" +
-                              jugador2 + ", tu puntuación final es: " + puntuacionJugador2 + "/3";
+        // Calcula el porcentaje de aciertos y redondea al entero más cercano
+        int porcentajeJugador1 = (int) ((puntuacionJugador1 / (double) totalPreguntas) * 100);
+        int porcentajeJugador2 = (int) ((puntuacionJugador2 / (double) totalPreguntas) * 100);
+
+        // Resultado final
+        String mensajeFinal = jugador1 + ", tu puntuación final es: " + puntuacionJugador1 + "/" + totalPreguntas + 
+                              " (" + porcentajeJugador1 + "%)\n" +
+                              jugador2 + ", tu puntuación final es: " + puntuacionJugador2 + "/" + totalPreguntas + 
+                              " (" + porcentajeJugador2 + "%)";
 
         if (puntuacionJugador1 > puntuacionJugador2) {
             mensajeFinal += "\n¡" + jugador1 + " es el ganador!";
@@ -86,8 +98,8 @@ public class Proyecto_Final_Java {
         }
 
         JOptionPane.showMessageDialog(null, mensajeFinal);
-
         JOptionPane.showMessageDialog(null, "Gracias por jugar!");
     }
 }
+
 
